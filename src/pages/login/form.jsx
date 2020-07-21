@@ -2,6 +2,8 @@ import React from 'react'
 import { Form, Input, Button, Checkbox } from 'antd';
 import PubSub from 'pubsub-js'
 
+import { postLogin } from '../../api/login'
+
 const layout = {
   labelCol: {
     span: 8,
@@ -21,6 +23,12 @@ const Demo = () => {
   const onFinish = values => {
     console.log('Success:', values);
 		PubSub.publish('formValues',values)
+		postLogin(values).then(res =>{
+			if(res.success){
+				console.log(res)
+				
+			}
+		})
   };
 
   const onFinishFailed = errorInfo => {
@@ -39,7 +47,7 @@ const Demo = () => {
     >
       <Form.Item
         label="Username"
-        name="username"
+        name="account"
         rules={[
           {
             required: true,

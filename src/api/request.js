@@ -2,7 +2,7 @@ import axios from 'axios'
 
 //创建axios实例
 const service = axios.create({
-	baseURL: '/',
+	/* baseURL: '/', */
 	timeout: 6000
 })
 
@@ -14,7 +14,7 @@ const err = (error) => {
 
 // request interceptor
 service.interceptors.request.use(config => {
-	config.headers['token'] = 'token'
+	//config.headers['token'] = 'token'
 	return config
 },err)
 
@@ -22,3 +22,7 @@ service.interceptors.request.use(config => {
 service.interceptors.response.use((response) => {
   return response.data
 },err)
+
+export {
+	service as request
+}
