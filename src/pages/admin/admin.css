@@ -7,14 +7,14 @@
 	color: #fff;
 }
 .admin .sideMenu .sideMenu-header h1{
-	padding: 20px 0;
+	padding: 15px 0;
 	font-size: 20px;
 	text-align: center;
 	color: #fff;
-	background-color: #002140;
+	/* background-color: #002140; */
 }
 .admin .topHeader{
-	height: 80px;
+	height: 40px;
 }
 .admin .admin-content{
 	background-color: #fff;

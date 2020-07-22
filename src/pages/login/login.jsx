@@ -27,16 +27,18 @@ export default class Login extends Component{
 	
 	onFinish = values => {
 	  console.log('Success:', values);
-		// postLogin(values).then(res =>{
-		// 	if(res.success){
-		// 		console.log(res)
-		// 		// 跳转到对应页面 不需要回退用replace
-		// 		let { from } = this.props.location.state || { from: { pathname: "/" } }
-		// 		this.props.history.replace(from.pathname)
-		// 	}
-		// })
-		let { from } = this.props.location.state || { from: { pathname: "/" } }
-		this.props.history.replace(from.pathname)
+		postLogin(values).then(res =>{
+			if(res.success){
+				console.log(res)
+				// 跳转到对应页面 不需要回退用replace
+				let { from } = this.props.location.state || { from: { pathname: "/" } }
+				this.props.history.replace(from.pathname)
+			}else{
+				message.warning(res.msg)
+			}
+		})
+		// let { from } = this.props.location.state || { from: { pathname: "/" } }
+		// this.props.history.replace(from.pathname)
 	};
 	
 	onFinishReg = values => {
@@ -60,6 +62,7 @@ export default class Login extends Component{
 				<section className="login-content">
 					<div className="login-content-left">
 						<span className="login-time">{this.state.time}</span>
+						<img src={ logo } alt="logo"/>
 					</div>
 					<div className="login-content-right">
 						<Tabs defaultActiveKey="1" centered>

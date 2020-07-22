@@ -23,13 +23,28 @@
 .login .login-content{
 	width: 700px;
 	height: 300px;
-	margin: 50px auto;
+	margin: 80px auto;
 	padding: 20px 40px;
 	display: flex;
 }
 .login .login-content .login-content-left{
 	width: 300px;
 	background: #409EFF;
+	box-sizing: border-box;
+	position: relative;
+}
+.login .login-content .login-content-left img{
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -75px 0 0 -75px;
+}
+.login .login-content .login-content-left .login-time{
+	color: #fff;
+	font-size: 28px;
+	padding: 18px;
 }
 .login .login-content .login-content-right{
 	background: #fff;

@@ -3,12 +3,13 @@ import React, { Component } from 'react'
 /* 
   home
 */
-export default class Charts extends Component {
+
+export default class Home extends Component {
+	
   render() {
+		
     return (
-      <div>
-        home
-      </div>
+      <h1>home</h1>
     )
   }
 }

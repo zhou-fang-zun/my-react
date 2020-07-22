@@ -47,7 +47,7 @@ class SideMenu extends Component{
 	  console.log(menuOpenedArray);
 	  return (
 	    <div className='sideMenu'>
-	      <Link to='/' className='sideMenu_header'>
+	      <Link to='/' className='sideMenu-header'>
 	        <h1>React后台系统</h1>
 	      </Link>
 	      <Menu
