@@ -21,22 +21,27 @@
 	color: white;
 }
 .login .login-content{
-	width: 500px;
+	width: 700px;
 	height: 300px;
 	margin: 50px auto;
 	padding: 20px 40px;
+	display: flex;
 }
-.login .login-content h2{
+.login .login-content .login-content-left{
+	width: 300px;
+	background: #409EFF;
+}
+.login .login-content .login-content-right{
+	background: #fff;
+	padding: 10px 20px;
+	flex: auto;
+}
+.login .login-content .login-content-right h2{
 	text-align: center;
-	font-size: 30px;
+	font-size: 18px;
 	font-weight: bold;
 }
-.login .login-content .login-form{
-	position: relative;
-}
-.login .login-content .login-form .login-form-button{
-	position: absolute;
-	left: 50%;
-	margin-left: -25%;
+
+.login .login-content .login-content-right .login-form-button{
 	width: 100%;
 }

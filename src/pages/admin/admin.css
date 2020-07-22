@@ -1,0 +1,24 @@
+.admin{
+	width: 100%;
+	height: 100%;
+	color: #333;
+}
+.admin .sideMenu{
+	color: #fff;
+}
+.admin .sideMenu .sideMenu-header h1{
+	padding: 20px 0;
+	font-size: 20px;
+	text-align: center;
+	color: #fff;
+	background-color: #002140;
+}
+.admin .topHeader{
+	height: 80px;
+}
+.admin .admin-content{
+	background-color: #fff;
+}
+.admin .admin-footer{
+	text-align: center;
+}

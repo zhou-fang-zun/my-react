@@ -7,3 +7,11 @@ export function postLogin(config){
 		method:'post'
 	})
 }
+
+export function postReg(config){
+	return request({
+		url: '/admin/register',
+		data: config,
+		method: 'post'
+	})
+}
