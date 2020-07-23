@@ -25,6 +25,7 @@ export default class Charts extends Component {
 					success={this.success}
 					processData={this.processData}
 					importBtnTxt='点我上传一个excel试试'
+					exportBtn={true}
 				>
 				</ReactExcel>
 				<br/>

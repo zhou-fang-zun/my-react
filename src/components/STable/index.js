@@ -6,7 +6,14 @@ export default class STable extends Component {
 	constructor(props){
 		super(props)
 		this.state = {
-			loading: false
+			loading: false,
+			query: {},  //查询条件
+			data: [],   //表格中显示的数据
+			//分页器的状态
+			currentPage: 1,
+			pageSize: 10,   
+			total: 0    ,//总共多少条数据
+			selectedRowKeys:[]
 		}
 	}
 	static propTypes = {
@@ -25,15 +32,27 @@ export default class STable extends Component {
 		})
 	}
 	//刷新
-	refreshData = async () => {
+	refresh = async () => {
+		this.setState({ loading: true})
 		
 	}
+	onSelectChange = (selectedRowKeys ) => {
+		this.setState({ selectedRowKeys })
+	}
+	
 	render(){
-		const { columns, data } = this.props
+		const { columns, data  } = this.props
+		const { selectedRowKeys, loading } = this.state
+		const rowSelection = {
+			selectedRowKeys,
+			onChange: this.onSelectChange,
+		}
 		return (
 			<Table
+				rowSelection={rowSelection}
 				columns={columns}
 				dataSource={data}
+				loading={loading}
 			></Table>
 		)
 	}

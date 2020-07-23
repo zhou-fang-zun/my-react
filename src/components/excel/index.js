@@ -29,6 +29,7 @@ class ReactExcel extends Component {
                 $t.wb = XLSX.read(btoa(this.fixdata(data)), {
                     type: 'base64'
                 })
+								console.log($t.target.result,'eeeeeeeeeeeeeeee')
             } else {
                 $t.wb = XLSX.read(data, {
                     type: 'binary'

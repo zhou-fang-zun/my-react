@@ -51,7 +51,6 @@ export default class Home extends Component {
 		    key: 'action',
 		    render: (text, record) => (
 		      <span>
-		        <a style={{ marginRight: 16 }}>Invite {record.name}</a>
 		        <a>Delete</a>
 		      </span>
 		    ),
