@@ -15,3 +15,11 @@ export function postReg(config){
 		method: 'post'
 	})
 }
+
+export function getCodes(config){
+	return request({
+		url: '/admin/code',
+		data: config,
+		method: 'post'
+	})
+}

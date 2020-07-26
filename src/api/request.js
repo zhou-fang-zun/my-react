@@ -8,7 +8,7 @@ const service = axios.create({
 
 const err = (error) => {
 	if(error.response){
-		const data = error.response
+		//const data = error.response
 	}
 }
 

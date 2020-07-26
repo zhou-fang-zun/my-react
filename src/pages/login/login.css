@@ -48,15 +48,16 @@
 }
 .login .login-content .login-content-right{
 	background: #fff;
-	padding: 10px 20px;
+	padding: 0 20px;
 	flex: auto;
 }
-.login .login-content .login-content-right h2{
-	text-align: center;
-	font-size: 18px;
-	font-weight: bold;
+.login .login-content .login-content-right .content-component .login-content-right-way{
+	color:#111;
+	font-size: 14px;
+	display: flex;
+	justify-content: space-between;
 }
-
-.login .login-content .login-content-right .login-form-button{
-	width: 100%;
+.login .login-content .login-content-right .content-component{
+	line-height: 56px;
+	height: 56px;
 }

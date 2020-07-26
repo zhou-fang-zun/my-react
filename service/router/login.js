@@ -3,8 +3,12 @@ const router = express.Router()
 const User = require('../db/model/userModel')
 
 router.post('/login',(req,res)=>{
-	const { account, password } = req.body
+	const { account, password, code } = req.body
 	if(!account || !password) return res.send({ code:-1, success:false, msg:'参数错误' })
+	if(code !== '6666'){
+		res.send({ code:-1, success:false, msg:'验证码错误'})
+		return
+	}
 	User.find({ account, password }).then(data =>{
 		if(data.length > 0){
 			res.send({ code:0, success:true, msg:'登录成功' })
@@ -30,6 +34,11 @@ router.post('/register',(req,res)=>{
 	}).catch(()=>{
 		res.send({ code:-1, success:false, msg:'注册失败'})
 	})
+})
+
+router.post('/code',(req,res)=>{
+	const data = '6666'
+	res.send({ code:0, success:true, msg:'获取成功', data })
 })
 
 module.exports = router
