@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 /* 
   home
 */
-import { Tag } from 'antd'
+import { Tag, Button  } from 'antd'
 import STable from '../../components/STable'
 
 export default class Home extends Component {
@@ -14,7 +14,7 @@ export default class Home extends Component {
 		    title: 'Name',
 		    dataIndex: 'name',
 		    key: 'name',
-		    render: (text) => <a>{text}</a>,
+		    render: (text) => <Button type="link">{text}</Button >
 		  },
 		  {
 		    title: 'Age',
@@ -51,7 +51,7 @@ export default class Home extends Component {
 		    key: 'action',
 		    render: (text, record) => (
 		      <span>
-		        <a>Delete</a>
+						<Button type="text">Delete</Button>
 		      </span>
 		    ),
 		  },

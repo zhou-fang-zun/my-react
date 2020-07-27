@@ -1,4 +1,4 @@
-import React,{ Component } from 'react'
+import React from 'react'
 import { Redirect, withRouter, Route, Switch } from 'react-router-dom'
 import { Layout } from 'antd'
 import { routes } from '../../routers/router';

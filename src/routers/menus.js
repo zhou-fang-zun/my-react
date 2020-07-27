@@ -1,14 +1,6 @@
 import React from 'react'
 import {
   HomeOutlined,
-  PieChartOutlined,
-  BarsOutlined,
-  MenuOutlined,
-  QqOutlined,
-  UsergroupDeleteOutlined,
-  WechatOutlined,
-  AndroidOutlined,
-  ShoppingOutlined,
   AreaChartOutlined
 } from '@ant-design/icons';
 

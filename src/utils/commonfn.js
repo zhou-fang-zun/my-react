@@ -43,11 +43,11 @@ export function wSystemtype() {
  * @returns {Number}
 */
 export function fmoney(s) {
-  s = parseFloat((s + '').replace(/[^\d\.-]/g, '')).toFixed(2) + ''
+  s = parseFloat((s + '').replace(/[^\d-]/g, '')).toFixed(2) + ''
   var l = s.split('.')[0].split('').reverse(), r = s.split('.')[1]
   let t = ''
   for (let i = 0; i < l.length; i++) {
-    t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? ',' : '')
+    t += l[i] + ((i + 1) % 3 === 0 && (i + 1) !== l.length ? ',' : '')
   }
   return t.split('').reverse().join('') + '.' + r
 }
@@ -59,17 +59,17 @@ export function fmoney(s) {
 export function _throttle(fn, delay) {
   var last;
   var timer;
-  var delay = delay || 200;
+  var realdelay = delay || 200;
   return function () {
     var th = this;
     var args = arguments;
     var now = +new Date();
-    if (last && now - last < delay) {
+    if (last && now - last < realdelay) {
       clearTimeout(timer);
       timer = setTimeout(function () {
         last = now;
         fn.apply(th, args);
-      }, delay);
+      }, realdelay);
     } else {
       last = now;
       fn.apply(th, args);
@@ -82,7 +82,7 @@ export function _throttle(fn, delay) {
  * @param {*} wait 防抖时间,毫秒
  */
 export function _debounce(fn, wait) {
-  var wait = wait || 200;
+  var realwait = wait || 200;
   var timer;
   return function () {
     var th = this;
@@ -93,7 +93,7 @@ export function _debounce(fn, wait) {
     timer = setTimeout(function () {
       timer = null;
       fn.apply(th, args);
-    }, wait);
+    }, realwait);
   };
 }
 /**
@@ -105,16 +105,16 @@ export function reBytesStr(str, len) {
   if ((!str && typeof (str) != 'undefined')) { return ''; }
   var num = 0;
   var str1 = str;
-  var str = '';
+  var realstr = '';
   for (var i = 0, lens = str1.length; i < lens; i++) {
     num += ((str1.charCodeAt(i) > 255) ? 2 : 1);
     if (num > len) {
       break;
     } else {
-      str = str1.substring(0, i + 1);
+      realstr = str1.substring(0, i + 1);
     }
   }
-  return str;
+  return realstr;
 }
 
 

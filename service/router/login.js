@@ -1,11 +1,14 @@
 const express = require('express')
 const router = express.Router()
+const svgCaptcha = require('svg-captcha');
 const User = require('../db/model/userModel')
+
+var code = null;
 
 router.post('/login',(req,res)=>{
 	const { account, password, code } = req.body
 	if(!account || !password) return res.send({ code:-1, success:false, msg:'参数错误' })
-	if(code !== '6666'){
+	if(code !== code){
 		res.send({ code:-1, success:false, msg:'验证码错误'})
 		return
 	}
@@ -37,8 +40,11 @@ router.post('/register',(req,res)=>{
 })
 
 router.post('/code',(req,res)=>{
-	const data = '6666'
-	res.send({ code:0, success:true, msg:'获取成功', data })
+	var captcha = svgCaptcha.create();
+	//req.session.captcha = captcha.text;
+	code = captcha.text
+	res.type('svg');
+	res.send({ code:0, success:true, msg:'获取成功', data: captcha.data })
 })
 
 module.exports = router

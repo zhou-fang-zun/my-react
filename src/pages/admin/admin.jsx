@@ -6,7 +6,7 @@ import TopHeader from './topheader'
 import MainContent from './mainContent';
 import './admin.css'
 
-const { Header, Content, Sider, Footer }  = Layout;
+const { Header, Sider, Footer }  = Layout;
 export default class Admin extends Component{
 	state = {
 		collapsed: false

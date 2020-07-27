@@ -1,6 +1,6 @@
 import React,{ Component } from 'react'
 
-import { message } from 'antd';
+//import { message } from 'antd';
 import LoginForm from './LoginForm.js'
 import RegisterForm from './RegisterForm.js'
 import './login.css'

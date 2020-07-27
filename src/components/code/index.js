@@ -1,5 +1,7 @@
 import React,{ Component } from 'react'
 
+//使用react-svg模块
+import { ReactSVG } from 'react-svg';
 import { Button, message } from 'antd'
 //api
 import { getCodes } from '../../api/login/index.js'
@@ -14,7 +16,8 @@ class Code extends Component {
 			username: props.username,
 			code_loading: false,
 			code_msg: '获取验证码',
-			code_disabled: false
+			code_disabled: false,
+			svgImg: ''
 		}
 	}
 	//生命周期 将要接收父组件传过来的 props
@@ -45,6 +48,11 @@ class Code extends Component {
 		})
 		getCodes().then(res => {
 			if(res.success){
+				const { data } = res
+				this.setState({
+					svgImg: data
+				})
+				console.log(data,'data')
 				this.countDown()
 			}else{
 				this.setState({
@@ -79,8 +87,16 @@ class Code extends Component {
 	}
 	
 	render(){
-		const { code_disabled, code_msg, code_loading } = this.state
-		return <Button type="danger" disabled={ code_disabled } loading={ code_loading } onClick={ this.getCode } block>{ code_msg }</Button>
+		const { code_disabled, code_msg, code_loading, svgImg } = this.state
+		if(svgImg != ''){
+			return (
+				<div>
+					{ svgImg }
+				</div>
+			)
+		}else{
+			return <Button type="danger" disabled={ code_disabled } loading={ code_loading } onClick={ this.getCode } block>{ code_msg }</Button>
+		}
 	}
 }
 
