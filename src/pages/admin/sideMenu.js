@@ -1,4 +1,4 @@
-import React,{ Component } from 'react'
+import React,{ Component, Fragment } from 'react'
 import { withRouter, Link } from 'react-router-dom'
 import { Menu } from 'antd'
 
@@ -46,10 +46,8 @@ class SideMenu extends Component{
 	  console.log(menuSelected);
 	  console.log(menuOpenedArray);
 	  return (
-	    <div className='sideMenu'>
-	      <Link to='/' className='sideMenu-header'>
-	        <h1>React后台系统</h1>
-	      </Link>
+	    <Fragment>
+				<div className="admin-logo"><span>React后台系统</span></div>
 	      <Menu
 	        // 初始展开的 SubMenu 菜单项 key 数组
 	        defaultOpenKeys={menuOpenedArray}
@@ -59,11 +57,11 @@ class SideMenu extends Component{
 	        selectedKeys={[menuSelected]}
 	        mode="inline"
 	        // 主题颜色
-	        theme="dark"
+	        theme="light"
 	      >
 	        {this.renderMenu(menus)}
 	      </Menu>
-	    </div>
+	    </Fragment>
 	
 	  )
 	}

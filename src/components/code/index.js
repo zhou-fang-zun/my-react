@@ -49,9 +49,9 @@ class Code extends Component {
 		getCodes().then(res => {
 			if(res.success){
 				const { data } = res
-				this.setState({
-					svgImg: data
-				})
+				// this.setState({
+				// 	svgImg: data
+				// })
 				console.log(data,'data')
 				this.countDown()
 			}else{
@@ -90,8 +90,8 @@ class Code extends Component {
 		const { code_disabled, code_msg, code_loading, svgImg } = this.state
 		if(svgImg != ''){
 			return (
-				<div>
-					{ svgImg }
+				<div id="code">
+					
 				</div>
 			)
 		}else{

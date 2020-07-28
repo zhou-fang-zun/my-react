@@ -19,7 +19,7 @@ class UserMenu extends Component{
 	
 	render(){
 		return (
-			<Dropdown overlay={ this.renderMenu }>
+			<Dropdown className="user-menu" overlay={ this.renderMenu }>
 				<span style={{background:'white'}}>admin</span>
 			</Dropdown>
 		)

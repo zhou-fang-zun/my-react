@@ -3,22 +3,42 @@
 	height: 100%;
 	color: #333;
 }
-.admin .sideMenu{
-	color: #fff;
-}
-.admin .sideMenu .sideMenu-header h1{
-	padding: 15px 0;
-	font-size: 20px;
-	text-align: center;
-	color: #fff;
-	/* background-color: #002140; */
-}
-.admin .topHeader{
-	height: 40px;
-}
-.admin .admin-content{
+.admin .admin-sider{
+	width: 500px;
+	height: 100%;
 	background-color: #fff;
+}
+.admin .admin-sider .admin-logo{
+	height: 83px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.admin .admin-sider .admin-logo span{
+	display: block;
+	width: 177px;
+	height: 47px;
+	background-color: #1a2d3f;
+	color:#fff;
+	line-height: 47px;
+	text-align: center;
+	font-size: 18px;
+}
+.admin .layout-header{
+	height: 75px;
+	background-color: #fff;
+	box-shadow: 0 3px 16px 0 rgba(0,0,0,0.1);
+	position: relative;
+}
+.admin .layout-header .user-menu{
+	float: right;
+}
+.admin .layout-main{
+	border: 30px solid #f7f7f7;
+	background-color: #fff;
+	padding: 30px;
 }
 .admin .admin-footer{
 	text-align: center;
+	background-color: #f7f7f7;
 }

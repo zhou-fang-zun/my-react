@@ -6,7 +6,7 @@ import TopHeader from './topheader'
 import MainContent from './mainContent';
 import './admin.css'
 
-const { Header, Sider, Footer }  = Layout;
+const { Header, Content, Sider, Footer }  = Layout;
 export default class Admin extends Component{
 	state = {
 		collapsed: false
@@ -20,10 +20,14 @@ export default class Admin extends Component{
 	render(){
 		return (
 			<Layout className="admin">
-				<Sider><SideMenu/></Sider>
+				<Sider width="250px" className="admin-sider">
+					<SideMenu/>
+				</Sider>
 				<Layout>
-					<Header><TopHeader></TopHeader></Header>
-					<MainContent></MainContent>
+					<Header className="layout-header"><TopHeader></TopHeader></Header>
+					<Content className="layout-main">
+						<MainContent/>
+					</Content>
 					<Footer className="admin-footer">React项目-后台管理系统</Footer>
 				</Layout>
 			</Layout>

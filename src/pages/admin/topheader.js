@@ -1,14 +1,14 @@
-import React,{ Component } from 'react'
+import React,{ Component, Fragment } from 'react'
 
 import UserMenu from '../../components/tools/UserMenu.js'
 /* 头部组件 */
 export default class TopHeader extends Component{
 	render() {
 	  return (
-	    <div className='topHeader'>
+	    <Fragment>
 	      头部组件
 				<UserMenu></UserMenu>
-	    </div>
+	    </Fragment>
 	  )
 	}
 }
