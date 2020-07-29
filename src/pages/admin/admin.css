@@ -31,7 +31,10 @@
 	position: relative;
 }
 .admin .layout-header .user-menu{
-	float: right;
+	
+}
+.admin .layout-header .user-menu .menus{
+	
 }
 .admin .layout-main{
 	border: 30px solid #f7f7f7;

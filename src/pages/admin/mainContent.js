@@ -9,9 +9,8 @@ const MainContent = () => {
 		<Content className="admin-content">
 			<Switch>
 				{
-					routes.map(item => <Route render={() => <item.component />} key={item.path} path={item.path} />)
+					routes.map(item => <Route exact render={() => <item.component />} key={item.path} path={item.path} />)
 				}
-				<Redirect from="/" exact to="/home" />
 				<Redirect to="/404" />
 			</Switch>
 		</Content>

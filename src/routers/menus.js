@@ -6,8 +6,13 @@ import {
 
 export const menus = [
 	{
-		path: '/home',
+		path: '/',
 		title: '首页',
+		icon: <HomeOutlined />
+	},
+	{
+		path: '/home',
+		title: '工作区',
 		icon: <HomeOutlined />
 	},
 	{

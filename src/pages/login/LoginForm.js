@@ -1,12 +1,15 @@
 import React,{ Component, Fragment } from 'react'
+import { withRouter } from 'react-router-dom'
 
 import { Form, Input, Button, Row, Col, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { postLogin } from '../../api/login'
 //组件
 import Code from '../../components/code/index.js'
+//获取session方法
+import { setToken } from '../../utils/session.js'
 
-export default class LoginForm extends Component {
+class LoginForm extends Component {
 	constructor(){
 		super()
 		this.state = {
@@ -20,22 +23,24 @@ export default class LoginForm extends Component {
 		this.setState({
 			login_btn: true
 		})
-		postLogin(values).then(res =>{
-			if(res.success){
-				console.log(res)
-				this.setState({
-					login_btn: false
-				})
-				// 跳转到对应页面 不需要回退用replace
-				let { from } = this.props.location.state || { from: { pathname: "/" } }
-				this.props.history.replace(from.pathname)
-			}else{
-				this.setState({
-					login_btn: false
-				})
-				message.warning(res.msg)
-			}
-		})
+		setToken('123456')
+		this.props.history.push('/')
+		// postLogin(values).then(res =>{
+		// 	if(res.success){
+		// 		console.log(res)
+		// 		this.setState({
+		// 			login_btn: false
+		// 		})
+		// 		// 跳转到对应页面 不需要回退用replace
+		// 		let { from } = this.props.location.state || { from: { pathname: "/" } }
+		// 		this.props.history.replace(from.pathname)
+		// 	}else{
+		// 		this.setState({
+		// 			login_btn: false
+		// 		})
+		// 		message.warning(res.msg)
+		// 	}
+		// })
 	}
 	handleClick = () => {
 		this.props.switchForm('register')
@@ -131,3 +136,5 @@ export default class LoginForm extends Component {
 		)
 	}
 }
+
+export default withRouter(LoginForm)
