@@ -8,23 +8,31 @@ import './admin.css'
 
 const { Header, Content, Sider, Footer }  = Layout;
 export default class Admin extends Component{
-	state = {
-		collapsed: false
+	constructor(){
+		super()
+		this.state = {
+			collapsed: false
+		}
 	}
-	
-	toggle = () => {
+	componentWillMount(){
+		const collapsed = JSON.parse(sessionStorage.getItem('collapsed'))
+		this.setState({ collapsed })
+	}
+	toggleCollapsed = () => {
 		this.setState({
 			collapsed: !this.state.collapsed
 		})
+		sessionStorage.setItem('collapsed',this.state.collapsed)
 	}
 	render(){
+		const { collapsed } = this.state
 		return (
 			<Layout className="admin">
-				<Sider width="250px" className="admin-sider">
+				<Sider collapsed={ collapsed }  width="250px" className="admin-sider">
 					<SideMenu/>
 				</Sider>
 				<Layout>
-					<Header className="layout-header"><TopHeader></TopHeader></Header>
+					<Header className="layout-header"><TopHeader toggle={this.toggleCollapsed} collapsed={ collapsed }></TopHeader></Header>
 					<Content className="layout-main">
 						<MainContent/>
 					</Content>
