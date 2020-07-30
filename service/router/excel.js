@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const multer = require('multer')
 const xlsx = require('xlsx')
+const fs = require('fs')
 
 const upload = multer()
 router.post('/upload_excel',upload.fields([{name:'inputFile',maxCount: 1}]),(req,res)=>{
@@ -19,14 +20,14 @@ router.post('/upload_excel',upload.fields([{name:'inputFile',maxCount: 1}]),(req
 	const sheet = workbook.Sheets[workbook.SheetNames[0]] // 选择第一个工作簿
 	const result = xlsx.utils.sheet_to_json(sheet)
 	
-	console.log(result)
-	return res.send(result)
+	res.send({ code:0, success:true, data:result })
 })
 
-router.post('download',(req,res)=>{
-	res.attachment('文件.xlsx')
-	res.set('Content-Type','text/xml')
-	res.body = fs.readFileSync('./文件.xlsx');
+router.post('/download',(req,res)=>{
+	// res.attachment('文件.xlsx')
+	// res.set('Content-Type','text/xml')
+	// res.body = fs.readFileSync('./文件.xlsx');
+	res.send({ code:0, success:true, message:'请求成功!'})
 })
 
 /* 

@@ -16,7 +16,7 @@ export const menus = [
 		icon: <HomeOutlined />,
 		children: [
 			{
-				path: 'list',
+				path: '/list',
 				title:'工作区',
 				icon: ''
 			}
@@ -27,4 +27,9 @@ export const menus = [
 	  title: '图表',
 	  icon: <AreaChartOutlined />,
 	},
+	{
+		path: '/test',
+		title: '测试',
+		icon: <AreaChartOutlined />,
+	}
 ]
