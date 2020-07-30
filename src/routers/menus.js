@@ -13,7 +13,14 @@ export const menus = [
 	{
 		path: '/home',
 		title: '工作区',
-		icon: <HomeOutlined />
+		icon: <HomeOutlined />,
+		children: [
+			{
+				path: 'list',
+				title:'工作区',
+				icon: ''
+			}
+		]
 	},
 	{
 	  path: '/charts',

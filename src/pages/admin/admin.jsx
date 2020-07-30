@@ -19,10 +19,9 @@ export default class Admin extends Component{
 		this.setState({ collapsed })
 	}
 	toggleCollapsed = () => {
-		this.setState({
-			collapsed: !this.state.collapsed
-		})
-		sessionStorage.setItem('collapsed',this.state.collapsed)
+		const collapsed = !this.state.collapsed
+		this.setState({ collapsed })
+		sessionStorage.setItem('collapsed',collapsed)
 	}
 	render(){
 		const { collapsed } = this.state
