@@ -7,6 +7,6 @@ import Test from '../pages/about'
 export const routes = [
 	{ path:'/', component:Index },
 	{ path:'/charts', component:Charts },
-	{ path:'/home', component:Home },
+	{ path:'/home/list', component:Home },
 	{ path:'/test', component:Test },
 ]

@@ -30,7 +30,7 @@ export default class Admin extends Component{
 				<Sider collapsed={ collapsed }  width="250px" className="admin-sider">
 					<SideMenu/>
 				</Sider>
-				<Layout>
+				<Layout style={{overflowY: 'auto'}}>
 					<Header className="layout-header"><TopHeader toggle={this.toggleCollapsed} collapsed={ collapsed }></TopHeader></Header>
 					<Content className="layout-main">
 						<MainContent/>

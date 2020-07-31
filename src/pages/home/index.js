@@ -3,8 +3,7 @@ import React, { Component } from 'react'
 /* 
   home
 */
-import { Tag, Button  } from 'antd'
-import STable from '../../components/STable'
+import { Tag, Button, Table } from 'antd'
 
 export default class Home extends Component {
 	
@@ -82,7 +81,15 @@ export default class Home extends Component {
     return (
       <div>
 				<h1>home</h1>
-				<STable columns={columns} data={data}/>
+				<Table
+				  rowKey={record => record.key}
+				  size="small"
+				  columns={columns}
+				  dataSource={data}
+				  pagination={{
+				    pageSize: 5,
+				  }}
+				/>
 			</div>
     )
   }

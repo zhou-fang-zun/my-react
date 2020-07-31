@@ -24,7 +24,6 @@ export default class TopHeader extends Component{
 				{
 					collapsed ? <MenuFoldOutlined onClick={this.toggle}/> : <MenuUnfoldOutlined onClick={this.toggle}/>
 				}
-	      头部组件
 				<UserMenu></UserMenu>
 	    </Fragment>
 	  )

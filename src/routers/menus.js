@@ -16,7 +16,7 @@ export const menus = [
 		icon: <HomeOutlined />,
 		children: [
 			{
-				path: '/list',
+				path: '/home/list',
 				title:'工作区',
 				icon: ''
 			}
