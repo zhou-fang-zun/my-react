@@ -4,6 +4,7 @@ import React, { Component } from 'react'
   home
 */
 import { Tag, Button, Table } from 'antd'
+import TableComponet from '../../components/Table/index.js'
 
 export default class Home extends Component {
 	
@@ -78,18 +79,12 @@ export default class Home extends Component {
 		    tags: ['cool', 'teacher'],
 		  },
 		];
-    return (
+    
+		const checkbox = true
+		return (
       <div>
 				<h1>home</h1>
-				<Table
-				  rowKey={record => record.key}
-				  size="small"
-				  columns={columns}
-				  dataSource={data}
-				  pagination={{
-				    pageSize: 5,
-				  }}
-				/>
+				<TableComponet columns={columns} datas={data}></TableComponet>
 			</div>
     )
   }

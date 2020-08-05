@@ -1,10 +1,19 @@
 import React,{ Component, Fragment } from 'react'
 
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+//api
+import { postReg } from '../../api/login'
 export default class RegisterForm extends Component {
 	handleClick = () => {
 		this.props.switchForm('login')
+	}
+	onFinishReg = (values) => {
+		postReg(values).then(res => {
+			if(res.success){
+				message.success(res.msg)
+			}
+		})
 	}
 	
 	render(){
@@ -35,8 +44,8 @@ export default class RegisterForm extends Component {
 							  message: '用户名最多12位',
 							},
 							{
-							  pattern: /^[a-zA-Z0-9_]+$/,
-							  message: '用户名必须是英文、数字或下划线组成',
+							  pattern: /^[a-zA-Z0-9_@.]+$/,
+							  message: '用户名必须是邮箱形式',
 							},
 				    ]}
 				  >

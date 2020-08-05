@@ -4,6 +4,8 @@ import React,{ Component } from 'react'
 import { message, Button } from 'antd';
 //api
 import { uploadExcle, download } from '../../api/file/index.js'
+//子组件
+import TableComponet from '../../components/Table/index.js'
 
 const props = {
 	  name: 'file',
@@ -46,6 +48,7 @@ export default class About extends Component {
 				<div>
 					<Button onClick={this.handleTest}>测试</Button>
 				</div>
+				<TableComponet></TableComponet>
 			</div>
 		)
 	}

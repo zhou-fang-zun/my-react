@@ -2,7 +2,7 @@ import React,{ Component } from 'react'
 
 //使用react-svg模块
 import { ReactSVG } from 'react-svg';
-import { Button, message } from 'antd'
+import { Button, message, notification } from 'antd'
 //api
 import { getCodes } from '../../api/login/index.js'
 //倒计时
@@ -52,6 +52,9 @@ class Code extends Component {
 				// this.setState({
 				// 	svgImg: data
 				// })
+				notification.open({
+					message:`验证码为:${data}`
+				})
 				console.log(data,'data')
 				this.countDown()
 			}else{
