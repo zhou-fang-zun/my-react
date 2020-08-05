@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const svgCaptcha = require('svg-captcha');
 const User = require('../db/model/userModel')
+const jwt = require('jsonwebtoken');
 
-var code = null;
+var code = Math.ceil(Math.random()*10000)
 
 router.post('/login',(req,res)=>{
 	const { account, password, code } = req.body
@@ -12,9 +12,10 @@ router.post('/login',(req,res)=>{
 		res.send({ code:-1, success:false, msg:'验证码错误'})
 		return
 	}
+	const token = jwt.sign( {account}, 'shhhhh');
 	User.find({ account, password }).then(data =>{
 		if(data.length > 0){
-			res.send({ code:0, success:true, msg:'登录成功' })
+			res.send({ code:0, success:true, msg:'登录成功', token })
 		}else{
 			res.send({ code:-1, success:false, msg:'用户名密码不正确' })
 		}
@@ -40,11 +41,7 @@ router.post('/register',(req,res)=>{
 })
 
 router.post('/code',(req,res)=>{
-	var captcha = svgCaptcha.create();
-	//req.session.captcha = captcha.text;
-	code = captcha.text
-	res.type('svg');
-	res.send({ code:0, success:true, msg:'获取成功', data: captcha.data })
+	res.send({ code:0, success:true, msg:'获取成功', data: code })
 })
 
 module.exports = router

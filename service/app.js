@@ -31,6 +31,25 @@ router(app)
 
 app.use('/public',express.static('public'))
 
+// socket.io
+// 在线列表
+// let ioObj = {}
+// let id
+// io.on('connection', socket => {
+//   id = socket.id
+//   socket.on('login', data => {
+//     // data名字 id 唯一id
+//     ioObj[data] = id
+
+//   })
+//   // 发送私人消息
+//   socket.on('sendPriMes', data => {
+//     console.log(data, ioObj)
+//     // 传递私人消息
+//     io.to(ioObj[data.otherName]).emit('privateMsg', data)
+//   })
+// })
+
 app.listen(8009,()=>{
 	console.log('服务器启动')
 })
