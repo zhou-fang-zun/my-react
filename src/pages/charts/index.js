@@ -14,6 +14,7 @@ export default class Charts extends Component {
 	initCharts = (documents,data) => {
 		let myChart = echarts.init(documents);
 		myChart.setOption(data)
+		return myChart
 	}
 	componentDidMount(){
 		const option = {
@@ -159,6 +160,14 @@ export default class Charts extends Component {
 		        trigger: 'item',
 		        formatter: '{a} <br/>{b} : {c} ({d}%)'
 		    },
+				toolbox:{
+					feature: {
+						dataView: { show:true, readOnly:false },
+						magicType: { show:true, type:['line','bar']},
+						restore: { show:true },
+						saveAsImage: { show:true }
+					}
+				},
 		    legend: {
 		        orient: 'vertical',
 		        left: 'left',
@@ -205,13 +214,113 @@ export default class Charts extends Component {
 		        }
 		    ]
 		};
-		this.initCharts(document.getElementById('main2'),pieOption)
+		this.initCharts(document.getElementById('main2'),pieOption).dispatchAction({
+			type: 'highlight',
+			seriesIndex: 0,
+			dataIndex: 0,
+		})
+		
+		//new
+		const manyOption = {
+			title: {
+				text: '个人总分较班级/年级',
+				left: 'center'
+			},
+			legend: {
+				top: 30,
+				right: 120,
+				bottom: 30,
+				data: ['我','年级','班级']
+			},
+			toolbox: {
+				feature: {
+					dataView: { show:true, readOnly:true },
+					magicType: { show:true, type:['line','bar']},
+					restore: { show:true },
+					saveAsImage: { show:true }
+				}
+			},
+			calculable: true,
+			tooltip: {
+				formatter: function(params){
+					return params.name + "<br/>" + '分数:' + params.value;
+				}
+			},
+			xAxis: {
+				type: 'category',
+				data: ['最高分', '最低分', '平均分']
+			},
+			yAxis: {
+				type: 'value'
+			},
+			series: [
+				{
+					name: '我',
+					type: 'bar',
+					barWidth: '10%',
+					itemStyle: {
+						normal: {
+							show: true,
+							color:
+							new echarts.graphic.LinearGradient(0,0,0,1,[{
+								offset: 0,
+								color: '#FFCFCF'
+							},{
+								offset: 1,
+								color: '#F05353'
+							}])
+						}
+					},
+					data: [2,0,4,9,7,0]
+				},
+				{
+					name: '年级',
+					type: 'bar',
+					barWidth: '10%',
+					itemStyle: {
+						normal: {
+							show: true,
+							color:
+							new echarts.graphic.LinearGradient(0,0,0,1,[{
+								offset: 0,
+								color: '#1FE5BA'
+							},{
+								offset: 1,
+								color: '#18D0CE'
+							}])
+						}
+					},
+					data: [2,6,5,9,9,0]
+				},
+				{
+					name: '班级',
+					type: 'bar',
+					barWidth: '10%',
+					itemStyle: {
+						normal: {
+							show: true,
+							color:
+							new echarts.graphic.LinearGradient(0,0,0,1,[{
+								offset: 0,
+								color: '#909DD4'
+							},{
+								offset: 1,
+								color: '#9E88D3'
+							}])
+						}
+					},
+					data: [2,6,5,9,9,0]
+				},
+			]
+		}
+		this.initCharts(document.getElementById('main3'),manyOption)
 	}
   render() {
     return (
       <div style={{textAlign:'center',margin:20}}>
 				<div id="main" style={{width:'600px',height:'400px'}}></div>,
-				<div id="main2" style={{width:'600px',height:'400px'}}></div>
+				<div id="main2" style={{width:'600px',height:'400px'}}></div>,
+				<div id="main3" style={{width:'800px',height:'600px'}}></div>
 			</div>
     )
   }
