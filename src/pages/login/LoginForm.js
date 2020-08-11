@@ -24,24 +24,25 @@ class LoginForm extends Component {
 		this.setState({
 			login_btn: true
 		})
-		//this.props.history.push('/')
-		postLogin(values).then(res =>{
-			if(res.success){
-				console.log(res)
-				setToken(res.token)
-				this.setState({
-					login_btn: false
-				})
-				// 跳转到对应页面 不需要回退用replace
-				let { from } = this.props.location.state || { from: { pathname: "/" } }
-				this.props.history.replace(from.pathname)
-			}else{
-				this.setState({
-					login_btn: false
-				})
-				message.warning(res.msg)
-			}
-		})
+		setToken('1234')
+		this.props.history.push('/')
+		// postLogin(values).then(res =>{
+		// 	if(res.success){
+		// 		console.log(res)
+		// 		setToken(res.token)
+		// 		this.setState({
+		// 			login_btn: false
+		// 		})
+		// 		// 跳转到对应页面 不需要回退用replace
+		// 		let { from } = this.props.location.state || { from: { pathname: "/" } }
+		// 		this.props.history.replace(from.pathname)
+		// 	}else{
+		// 		this.setState({
+		// 			login_btn: false
+		// 		})
+		// 		message.warning(res.msg)
+		// 	}
+		// })
 	}
 	handleClick = () => {
 		this.props.switchForm('register')

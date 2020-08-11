@@ -4,19 +4,11 @@ import React, { Component } from 'react'
   图表管理
 */
 import echarts from 'echarts'
-import ReactExcel from '../../components/excel'
-
+// 引入饼图
+require('echarts/lib/chart/pie');
 export default class Charts extends Component {
 	state={
-		dataSource:[],
-		columns:[]
-	}
-	// 处理excel成功
-	success=(data,columns)=>{
-		this.setState({
-			dataSource:data,
-			columns:columns
-		})
+		
 	}
 	
 	initCharts = (documents,data) => {
@@ -25,44 +17,201 @@ export default class Charts extends Component {
 	}
 	componentDidMount(){
 		const option = {
+			//图标的标题
 			title: { text: 'ECharts 入门示例', left: 'center', subtext: '二级标题' },
+			//应用的组件
 			tooltip: {
 				formatter(){
 					return '这是一个提示'
 				}
 			},
+			//图例组件包括颜色、朝向、位置等
 			legend: {
 				data: ['销量'],
 				bottom: 0,
 				formatter: '2020'
 			},
 			color: ['#6666FF','#990000'],
+			//直角坐标系中x轴需要配置的
 			xAxis: {
 				data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
 			},
+			//直角坐标系中y轴需要配置的
 			yAxis: {},
+			//系列列表，包括列表类型、颜色、数据等
 			series: {
 				name: '销量',
 				type: 'bar',
-				data: [5, 20, 36, 10, 10, 20],
-				item
+				data: [5, 20, 36, 10, 10, 20]
 			}
 		}
 		this.initCharts(document.getElementById('main'),option)
+		
+		//pie
+		let pieData = [
+			{
+				value: '3661',
+				name: '三角函数的图像与性质'
+			},
+			{
+				value: '5713',
+				name: '空间向量及其运算'
+			},
+			{
+				value: '4563',
+				name: '直线与圆锥曲线的位置关系'
+			},
+			{
+				value: '9938',
+				name: '复数代数形式的四则运算'
+			},
+			{
+				value: '17623',
+				name: '集合'
+			},
+			{
+				value: '3299',
+				name: '公式的联系'
+			},
+		];
+		const pieOption = {
+			title: {
+				text: '三角函数',
+				x: 'center',
+				y: '38%',
+				textStyle: {
+					fontWeight: 'bold',
+					fontSize: 16
+				}
+			},
+			tooltip: {
+				show: true,
+				trigger: 'item',
+				formatter: "{b}: {c} ({d}%)"
+			},
+			legend: {
+				orient: 'vertical', //horizontal
+				top: '74%',
+				data:[{
+					name: '三角函数的图象与性质',
+					//强制设置图形为圆。
+					icon: 'circle'
+				},{
+					name: '空间向量及其运算',
+					//强制设置图形为圆。
+					icon: 'circle'
+				},{
+					name: '直线与圆锥曲线的位置关系',
+					//强制设置图形为圆。
+					icon: 'circle'
+				},{
+					name: '复数代数形式的四则运算',
+					//强制设置图形为圆。
+					icon: 'circle'
+				},{
+					name: '集合',
+					//强制设置图形为圆。
+					icon: 'circle'
+				},{
+					name: '公式的联系',
+					//强制设置图形为圆。
+					icon: 'circle'
+				}]
+			},
+			series: [{
+				type: 'pie',
+				selectedMode: 'single',
+				zlevel: 1,
+				center: ['50%','40%'],//饼图的中心（圆心）坐标，数组的第一项是横坐标，第二项是纵坐标。
+				radius: ['36%','58%'],
+				color: ['#86D560', '#AF89D6', '#59ADF3', '#FF999A', '#FFCC67'],
+				symbolOffset: [0, 120],
+				label: {
+					normal: {
+						position: 'outside',
+						formatter: '{d}%',
+						textStyle: {
+							color: '#999999',
+							fontWeight: 'bold',
+							fontSize: 14
+						}
+					},
+					emphasis: {
+						color: '#57B3FE',
+					},
+					labelLine: {
+						normal: {
+							show: false
+						}
+					}
+				},
+				data: pieData
+			}]
+		}
+		
+		const TestOption = {
+		    title: {
+		        text: '某站点用户访问来源',
+		        subtext: '纯属虚构',
+		        left: 'center'
+		    },
+		    tooltip: {
+		        trigger: 'item',
+		        formatter: '{a} <br/>{b} : {c} ({d}%)'
+		    },
+		    legend: {
+		        orient: 'vertical',
+		        left: 'left',
+		        data: [{
+							name: '三角函数的图象与性质',
+							//强制设置图形为圆。
+							icon: 'circle'
+						},{
+							name: '空间向量及其运算',
+							//强制设置图形为圆。
+							icon: 'circle'
+						},{
+							name: '直线与圆锥曲线的位置关系',
+							//强制设置图形为圆。
+							icon: 'circle'
+						},{
+							name: '复数代数形式的四则运算',
+							//强制设置图形为圆。
+							icon: 'circle'
+						},{
+							name: '集合',
+							//强制设置图形为圆。
+							icon: 'circle'
+						},{
+							name: '公式的联系',
+							//强制设置图形为圆。
+							icon: 'circle'
+						}]
+		    },
+		    series: [
+		        {
+		            type: 'pie',
+		            radius: '55%',
+		            center: ['50%', '60%'],
+								color: ['#86D560', '#AF89D6', '#59ADF3', '#FF999A', '#FFCC67'],
+		            data: pieData,
+		            emphasis: {
+		                itemStyle: {
+		                    shadowBlur: 10,
+		                    shadowOffsetX: 0,
+		                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                }
+		            }
+		        }
+		    ]
+		};
+		this.initCharts(document.getElementById('main2'),pieOption)
 	}
   render() {
     return (
       <div style={{textAlign:'center',margin:20}}>
-				<ReactExcel 
-					success={this.success}
-					processData={this.processData}
-					importBtnTxt='点我上传一个excel试试'
-					exportBtn={true}
-				>
-				</ReactExcel>
-				<br/>
-				<br/>
-				<div id="main" style={{width:'600px',height:'400px'}}></div>
+				<div id="main" style={{width:'600px',height:'400px'}}></div>,
+				<div id="main2" style={{width:'600px',height:'400px'}}></div>
 			</div>
     )
   }
