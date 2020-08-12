@@ -29,10 +29,14 @@ export default class About extends Component {
 	state = {
 		
 	}
+	
+	
 	handleTest = () => {
-		download().then(res => {
-			console.log(res,'res')
-		})
+		// download().then(res => {
+		// 	console.log(res,'res')
+		// })
+		var url =  "http://localhost:8009/excel/download/excel";
+		window.location = url;//这里不能使用get方法跳转，否则下载不成功
 	}
 	
 	render(){

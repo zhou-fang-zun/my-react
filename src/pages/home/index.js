@@ -7,6 +7,24 @@ import { Tag, Button, Table } from 'antd'
 import TableComponet from '../../components/Table/index.js'
 
 export default class Home extends Component {
+	constructor(props){
+		super(props);
+		this.state = {
+			
+		}
+	}
+	handlePrint = () => {
+		const newWindow = window.open("打印窗口", "_blank")
+		const docStr = document.getElementById('print').innerHTML
+		//const docStr = '<div>test</div>'  //需要打印的内容
+		newWindow.document.write(docStr)
+		const styles = document.createElement("style")
+		styles.setAttribute('type', 'text/css') //media="print"
+		styles.innerHTML = ''
+		newWindow.document.getElementsByTagName('head')[0].appendChild(styles)
+		newWindow.print()
+		newWindow.close()
+	}
 	
   render() {
 		const columns = [
@@ -84,7 +102,12 @@ export default class Home extends Component {
 		return (
       <div>
 				<h1>home</h1>
-				<TableComponet columns={columns} datas={data}></TableComponet>
+				<div>
+					<Button type="primary" onClick={ this.handlePrint }>打印</Button>
+				</div>
+				<div id="print">
+					<TableComponet columns={columns} datas={data}></TableComponet>
+				</div>
 			</div>
     )
   }
