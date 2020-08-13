@@ -28,7 +28,7 @@ class MainContent extends Component {
 			<Content>
 				<Switch>
 					{
-						routes.map(item => <PrivateRouter exact path={item.path} component={item.component}></PrivateRouter>)
+						routes.map(item => <PrivateRouter exact path={item.path} component={item.component} key={item.path}></PrivateRouter>)
 					}
 				</Switch>
 				<Redirect to="/404" />
