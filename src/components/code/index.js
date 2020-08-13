@@ -1,7 +1,6 @@
 import React,{ Component } from 'react'
 
 //使用react-svg模块
-import { ReactSVG } from 'react-svg';
 import { Button, message, notification } from 'antd'
 //api
 import { getCodes } from '../../api/login/index.js'
@@ -90,16 +89,8 @@ class Code extends Component {
 	}
 	
 	render(){
-		const { code_disabled, code_msg, code_loading, svgImg } = this.state
-		if(svgImg != ''){
-			return (
-				<div id="code">
-					
-				</div>
-			)
-		}else{
-			return <Button type="danger" disabled={ code_disabled } loading={ code_loading } onClick={ this.getCode } block>{ code_msg }</Button>
-		}
+		const { code_disabled, code_msg, code_loading } = this.state
+		return <Button type="danger" disabled={ code_disabled } loading={ code_loading } onClick={ this.getCode } block>{ code_msg }</Button>
 	}
 }
 

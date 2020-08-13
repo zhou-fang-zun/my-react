@@ -1,6 +1,6 @@
-import React,{ Component, Fragment } from 'react'
+import React,{ Component } from 'react'
 
-import { Menu, Dropdown, Button, Avatar } from 'antd'
+import { Menu, Dropdown } from 'antd'
 import { LogoutOutlined, UserOutlined, MenuUnfoldOutlined, QuestionCircleOutlined, BellOutlined } from '@ant-design/icons';
 const { Item } = Menu
 
@@ -28,13 +28,13 @@ class UserMenu extends Component{
 	
 	render(){
 		return (
-			<Fragment>
+			<div className="header-right">
 				<Dropdown className="user-menu" overlay={ this.renderMenu }>
 					<span>admin</span>
 				</Dropdown>
-				<BellOutlined className="notice"/>
 				<QuestionCircleOutlined className="tip"/>
-			</Fragment>
+				<BellOutlined className="notice"/>
+			</div>
 		)
 	}
 }

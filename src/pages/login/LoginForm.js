@@ -8,7 +8,7 @@ import { postLogin } from '../../api/login'
 //组件
 import Code from '../../components/code/index.js'
 //获取session方法
-import { setToken } from '../../utils/session.js'
+import { setToken } from '../../utils/cookie.js'
 
 class LoginForm extends Component {
 	constructor(){
@@ -24,25 +24,25 @@ class LoginForm extends Component {
 		this.setState({
 			login_btn: true
 		})
-		setToken('1234')
-		this.props.history.push('/')
-		// postLogin(values).then(res =>{
-		// 	if(res.success){
-		// 		console.log(res)
-		// 		setToken(res.token)
-		// 		this.setState({
-		// 			login_btn: false
-		// 		})
-		// 		// 跳转到对应页面 不需要回退用replace
-		// 		let { from } = this.props.location.state || { from: { pathname: "/" } }
-		// 		this.props.history.replace(from.pathname)
-		// 	}else{
-		// 		this.setState({
-		// 			login_btn: false
-		// 		})
-		// 		message.warning(res.msg)
-		// 	}
-		// })
+		// setToken('1234')
+		// this.props.history.push('/')
+		postLogin(values).then(res =>{
+			if(res.success){
+				console.log(res)
+				setToken(res.token)
+				this.setState({
+					login_btn: false
+				})
+				// 跳转到对应页面 不需要回退用replace
+				let { from } = this.props.location.state || { from: { pathname: "/" } }
+				this.props.history.replace(from.pathname)
+			}else{
+				this.setState({
+					login_btn: false
+				})
+				message.warning(res.msg)
+			}
+		})
 	}
 	handleClick = () => {
 		this.props.switchForm('register')

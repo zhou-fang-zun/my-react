@@ -48,7 +48,7 @@ class TableComponet extends Component {
 	
 	render(){
 		const { columns, datas, checkbox, rowKey } = this.props
-		const { data, loadingTable, selectedRowKeys } = this.state
+		const { loadingTable, selectedRowKeys } = this.state
 		const rowSelection = {
 			selectedRowKeys,
 			onChange: this.onChangeBox

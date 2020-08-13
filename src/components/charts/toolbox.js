@@ -15,7 +15,7 @@ export default class SwitchType extends Component {
 			//提示
 			tooltip: {
 				formatter: function(params){
-					return params.name + "<br/>" + '分数:' + params.value;
+					return `${params.name }<br/>分数:${params.value}`
 				}
 			},
 			//图表描述 图例组件包括颜色、朝向、位置等

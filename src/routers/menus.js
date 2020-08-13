@@ -31,5 +31,20 @@ export const menus = [
 		path: '/test',
 		title: '测试',
 		icon: <AreaChartOutlined />,
+	},
+	{
+		path: '/department',
+		title: '部门管理',
+		icon: <AreaChartOutlined />,
+		children: [
+			{
+				path: '/department/list',
+				title: '部门列表'
+			},
+			{
+				path: '/department/add',
+				title: '部门新增'
+			}
+		]
 	}
 ]

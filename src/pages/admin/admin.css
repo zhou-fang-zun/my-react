@@ -31,6 +31,11 @@
 	box-shadow: 0 3px 16px 0 rgba(0,0,0,0.1);
 	position: relative;
 }
+.admin .layout-header .header-right{
+	position: absolute;
+	right: 0;
+	top: 0;
+}
 .admin .layout-header .user-menu:hover,.admin .layout-header .tip:hover,.admin .layout-header .notice:hover{
 	background-color: rgba(0,0,0,0.025) !important;
 }

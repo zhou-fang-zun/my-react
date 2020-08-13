@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 /* 
   home
 */
-import { Tag, Button, Table, Upload } from 'antd'
+import { Button, Upload } from 'antd'
 import TableComponet from '../../components/Table/index.js'
 //xlsx
 import XLSX from 'xlsx'
@@ -18,21 +18,21 @@ export default class Home extends Component {
 			    name: 'John Brown',
 			    age: 32,
 			    address: 'New York No. 1 Lake Park',
-			    tags: 'nice',
+			    explain: 'nice',
 			  },
 			  {
 			    key: '2',
 			    name: 'Jim Green',
 			    age: 42,
 			    address: 'London No. 1 Lake Park',
-			    tags: 'loser',
+			    explain: 'loser',
 			  },
 			  {
 			    key: '3',
 			    name: 'Joe Black',
 			    age: 32,
 			    address: 'Sidney No. 1 Lake Park',
-			    tags: 'cool',
+			    explain: 'cool',
 			  },
 			]
 		}
@@ -85,9 +85,9 @@ export default class Home extends Component {
 		    key: 'address',
 		  },
 		  {
-		    title: 'Tags',
-		    key: 'tags',
-		    dataIndex: 'tags'
+		    title: 'explain',
+		    key: 'explain',
+		    dataIndex: 'explain'
 		  },
 		  {
 		    title: 'Action',
@@ -100,7 +100,6 @@ export default class Home extends Component {
 		  },
 		];
     const { data } = this.state
-		const checkbox = true
 		return (
       <div>
 				<h1>home</h1>
