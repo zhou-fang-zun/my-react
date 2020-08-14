@@ -1,3 +1,10 @@
 .layout-header{
 	padding: 0 15px;
 }
+::-webkit-scrollbar{
+	width: 10px;
+}
+::-webkit-scrollbar-thumb{
+	background: linear-gradient(orange,red);
+	border-radius: 10px;
+}

@@ -1,0 +1,11 @@
+#run{
+	width: 110px;
+	height: 200px;
+	background: url(run.png) no-repeat;
+	animation: run 2s steps(7) infinite;
+}
+@keyframes run{
+	100%{
+		background-position: -724px 0;
+	}
+}
