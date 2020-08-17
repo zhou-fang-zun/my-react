@@ -35,7 +35,7 @@ export default class DepartmentAdd extends Component {
 						<Radio value={false}>禁用</Radio>
 					</Radio.Group>
 				</Item>
-				<Item label="描述" name="content">
+				<Item label="描述" name="note">
 					<Input.TextArea></Input.TextArea>
 				</Item>
 				<Item>

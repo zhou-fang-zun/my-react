@@ -1,8 +1,11 @@
-#run{
+.index-box #run{
 	width: 110px;
 	height: 200px;
 	background: url(run.png) no-repeat;
 	animation: run 2s steps(7) infinite;
+	position: absolute;
+	right: 30px;
+	bottom: 65px;
 }
 @keyframes run{
 	100%{
